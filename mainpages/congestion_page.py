@@ -120,7 +120,7 @@ def get_current_congestion(congestion_table, charge_type):
 # Streamlit 페이지 엔트리 함수
 # =========================
 def render_congestion_page(conn):
-    st.title("⚡ 시간대별 충전 혼잡도")
+    st.title("⚡ 시간대별 충전소 혼잡도")
 
     # 데이터 로드
     ev_load_long = load_and_preprocess(conn)

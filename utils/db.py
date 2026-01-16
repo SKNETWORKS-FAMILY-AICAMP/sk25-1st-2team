@@ -1,5 +1,10 @@
-import MySQLdb
+import pymysql
 import streamlit as st
+
+# PyMySQL이 MySQLdb인 것처럼 동작하도록 설정
+pymysql.install_as_MySQLdb()
+import MySQLdb
+
 
 @st.cache_resource
 def get_db():
