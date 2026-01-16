@@ -73,14 +73,14 @@ def render_sidebar():
       """, unsafe_allow_html=True)
 
     if 'current_page' not in st.session_state:
-        st.session_state.current_page = "키워드 분석"
+        st.session_state.current_page = "전기차 등록 현황"
 
     pages = {
+        "전기차 등록 현황": "menu_infrastructure",
         "충전소 현황": "menu_heatmap_new",
-        "주요 토픽": "menu_keywords",
-        "인프라 현황": "menu_infrastructure",
-        "FAQ" : "menu_FAQ",
-        "충전소 혼잡도" : "menu_hon"
+        "충전소 요금": "menu_keywords",
+        "충전소 혼잡도" : "menu_honjab",
+        "FAQ" : "menu_FAQ"
     }
 
     for page, key in pages.items():

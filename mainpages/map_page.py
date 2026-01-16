@@ -10,8 +10,6 @@ def install_and_import(package):
         try:
             subprocess.check_call([sys.executable, "-m", "pip", "install", package, "--quiet"])
         except subprocess.CalledProcessError as e:
-            # Streamlit 앱에서는 sys.exit() 대신 st.error()를 사용하는 것이 좋습니다.
-            # 하지만 이 함수는 render_map_page 외부에 있으므로 일단 print로 유지합니다.
             print(f"Failed to install {package}. Please install it manually and rerun.")
             sys.exit(1)
     globals()[package] = __import__(package)
@@ -23,11 +21,34 @@ install_and_import("streamlit")
 install_and_import("streamlit_folium")
 
 # --- 설정 ---
-# 스크립트의 위치를 기준으로 상대 경로 설정
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(SCRIPT_DIR, '..', 'data')
-FILE1_PATH = os.path.join(DATA_DIR, '한국전력공사_충전소의 위치 및 현황 정보_20250630.csv')
-FILE2_PATH = os.path.join(DATA_DIR, '한국환경공단_전기차 충전소 위치 및 운영정보_20221027.csv')
+# 현재 스크립트 파일의 위치를 기준으로 'data' 폴더의 경로를 설정합니다.
+# 이렇게 하면 어떤 위치에서 스크립트를 실행하더라도 파일 경로가 올바르게 지정됩니다.
+# os.path.abspath(__file__)는 현재 파일의 절대 경로를 반환합니다.
+# os.path.dirname()은 해당 경로의 디렉토리 부분을 반환합니다.
+# 'mainpages' 폴더 안에 있으므로, '..'를 사용하여 상위 디렉토리(프로젝트 루트)로 이동한 후 'data' 폴더를 지정합니다.
+CURRENT_SCRIPT_PATH = os.path.abspath(__file__)
+PROJECT_ROOT = os.path.dirname(os.path.dirname(CURRENT_SCRIPT_PATH))
+DATA_DIR = os.path.join(PROJECT_ROOT, 'data')
+
+import unicodedata
+
+def find_file_by_keyword(directory, keyword):
+    """지정된 디렉토리에서 키워드를 포함하는 첫 번째 파일의 전체 경로를 반환합니다."""
+    try:
+        # 키워드를 NFC 형식으로 정규화
+        normalized_keyword = unicodedata.normalize('NFC', keyword)
+        for filename in os.listdir(directory):
+            # 파일 이름을 NFC 형식으로 정규화
+            normalized_filename = unicodedata.normalize('NFC', filename)
+            if normalized_keyword in normalized_filename and normalized_filename.endswith('.csv'):
+                return os.path.join(directory, filename)
+    except FileNotFoundError:
+        return None
+    return None
+
+# 키워드로 동적으로 파일 경로 찾기
+FILE1_PATH = find_file_by_keyword(DATA_DIR, '한국전력공사')
+FILE2_PATH = find_file_by_keyword(DATA_DIR, '한국환경공단')
 
 # 열 이름 매핑
 F1_LAT_COL = '위도'
@@ -43,13 +64,21 @@ F2_MODEL_S_COL = '기종(소)'
 
 # --- 메인 스크립트 ---
 def render_map_page(conn):
+    # 파일 경로가 제대로 찾아졌는지 먼저 확인
+    if not FILE1_PATH or not FILE2_PATH:
+        streamlit.error(
+            f"데이터 폴더('{DATA_DIR}')에서 '한국전력공사' 또는 '한국환경공단' 키워드가 포함된 CSV 파일을 찾을 수 없습니다. "
+            "streamlit을 실행하는 위치에 'data' 폴더가 있는지, 그 안에 파일이 있는지 확인해주세요."
+        )
+        return  # 파일이 없으면 여기서 실행 중단
+
     streamlit.header("전국 전기차 충전소 현황")
 
     @streamlit.cache_data
-    def load_data():
+    def load_data(file1, file2):
         print("Reading CSV files...")
         try:
-            df1 = pandas.read_csv(FILE1_PATH, encoding='cp949', on_bad_lines='skip')
+            df1 = pandas.read_csv(file1, encoding='cp949', on_bad_lines='skip')
 
             # --- 사용자가 제공한 주소를 기반으로 정확한 필터링 ---
             address_to_remove = '강원특별자치도 동해시 이로동 183-2'
@@ -64,7 +93,7 @@ def render_map_page(conn):
             df1.dropna(subset=[F1_LAT_COL, F1_LON_COL], inplace=True)
             # --- 필터링 종료 ---
 
-            df2 = pandas.read_csv(FILE2_PATH, encoding='cp949', on_bad_lines='skip')
+            df2 = pandas.read_csv(file2, encoding='cp949', on_bad_lines='skip')
             print("Files read successfully.")
             return df1, df2
         except FileNotFoundError as e:
@@ -74,7 +103,8 @@ def render_map_page(conn):
             streamlit.error(f"데이터 파일을 읽는 중 오류가 발생했습니다: {e}")
             return None, None
 
-    df1, df2 = load_data()
+    # 캐시 함수에 파일 경로를 인자로 전달
+    df1, df2 = load_data(FILE1_PATH, FILE2_PATH)
 
     if df1 is None or df2 is None:
         streamlit.warning("데이터를 불러오지 못해 지도를 표시할 수 없습니다.")
