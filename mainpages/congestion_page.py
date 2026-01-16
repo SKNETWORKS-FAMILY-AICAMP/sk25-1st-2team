@@ -26,34 +26,33 @@ CONGESTION_META = {
 }
 
 # =========================
-# 데이터 로드 + 전처리
+# 데이터 로드 + 전처리 (MySQLdb 버전)
 # =========================
-def load_and_preprocess(file_path):
+def load_and_preprocess(conn):
     """
-    CSV 로드 → wide → long 변환
+    app.py에서 전달받은 self.conn (MySQLdb connection) 사용
     """
-    # 인코딩 안전 처리
-    try:
-        ev_load = pd.read_csv(file_path, encoding="utf-8-sig")
-    except UnicodeDecodeError:
-        try:
-            ev_load = pd.read_csv(file_path, encoding="cp949")
-        except UnicodeDecodeError:
-            ev_load = pd.read_csv(file_path, encoding="euc-kr")
+    sql = """
+        SELECT
+            date,
+            charge_type,
+            hour,
+            kwh
+        FROM ev_charge_load
+    """
+
+    # MySQLdb connection 그대로 사용
+    ev_load = pd.read_sql(sql, conn)
+
+    # 기존 congestion 로직과 컬럼명 맞추기
+    ev_load = ev_load.rename(columns={
+        "date": "일자",
+        "charge_type": "충전방식",
+        "kwh": "kWh"
+    })
 
     ev_load["일자"] = pd.to_datetime(ev_load["일자"])
-
-    hour_cols = [c for c in ev_load.columns if c.endswith("시")]
-
-    ev_load_long = ev_load.melt(
-        id_vars=["일자", "충전방식"],
-        value_vars=hour_cols,
-        var_name="hour",
-        value_name="kWh"
-    )
-
-    ev_load_long["hour"] = ev_load_long["hour"].str.replace("시", "").astype(int)
-    return ev_load_long
+    return ev_load
 
 
 # =========================
@@ -61,7 +60,7 @@ def load_and_preprocess(file_path):
 # =========================
 def build_congestion_table(ev_load_long):
     """
-    2024년 기준 시간대 평균 + 분위 기반 혼잡도
+    시간대 평균 + 분위 기반 혼잡도
     """
     hourly_mean = (
         ev_load_long
@@ -94,12 +93,9 @@ def build_congestion_table(ev_load_long):
 
 
 # =========================
-# 현재 시간 혼잡도 조회 (표시용 메타 포함)
+# 현재 시간 혼잡도 조회
 # =========================
 def get_current_congestion(congestion_table, charge_type):
-    """
-    서버 현재 시간 기준 혼잡도 반환
-    """
     current_hour = datetime.now().hour
 
     row = congestion_table[
@@ -128,11 +124,6 @@ def get_current_congestion(congestion_table, charge_type):
 # Streamlit chart용 시계열 데이터
 # =========================
 def get_hourly_timeseries(congestion_table, charge_type):
-    """
-    Streamlit line_chart / area_chart 전용 데이터 반환
-    index: hour
-    column: kWh
-    """
     ev_load = (
         congestion_table[congestion_table["충전방식"] == charge_type]
         .sort_values("hour")
