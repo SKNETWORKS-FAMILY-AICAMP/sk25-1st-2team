@@ -42,7 +42,7 @@ def get_cached_faq_data(table_name):
 
 # --- 2. 메인 렌더링 함수 (기존 함수를 수정합니다) ---
 def render_faq_page(conn): # 기존에 conn 인자를 받으므로 유지
-    st.header("⚡ 브랜드별 전기차 FAQ 서비스")
+    st.header("⚡전기차 관련 FAQ (KIA/Tesla/BYD)")
     st.markdown("궁금한 브랜드와 카테고리를 선택하여 자주 묻는 질문을 확인하세요.")
     st.divider()
 
@@ -96,7 +96,7 @@ def render_faq_page(conn): # 기존에 conn 인자를 받으므로 유지
                         for _, row in tab_df.iterrows():
                             q = highlight_keyword(row['question'], search_term, eng_search_term)
                             with st.expander(q):
-                                st.write(f"**A:** {row['answer']}")
+                                st.write(row['answer'])
         else:
             if display_df.empty:
                 st.warning("결과가 없습니다.")
@@ -104,7 +104,7 @@ def render_faq_page(conn): # 기존에 conn 인자를 받으므로 유지
                 for _, row in display_df.iterrows():
                     q = highlight_keyword(row['question'], search_term, eng_search_term)
                     with st.expander(q):
-                        st.write(f"**A:** {row['answer']}")
+                        st.write(row['answer'])
 
     except Exception as e:
         st.error("데이터를 불러오는 중 오류가 발생했습니다.")
