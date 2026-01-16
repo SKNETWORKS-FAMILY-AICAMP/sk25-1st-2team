@@ -4,7 +4,8 @@ from mainpages.map_page import render_map_page
 from mainpages.keyword_page import render_keyword_page
 from mainpages.infra_page import render_infra_page
 from mainpages.faq_page import render_faq_page
-from mainpages.congestion_page import  load_and_preprocess
+from mainpages.congestion_page import load_and_preprocess
+from mainpages.congestion_page import render_congestion_page
 from utils.db import get_db
 
 
@@ -23,7 +24,7 @@ class App:
     def run(self):
         # 사이드바 렌더링
         render_sidebar()
-
+        
         # 현재 페이지 렌더링
         page = st.session_state.current_page
         if page == "충전소 현황":
@@ -34,5 +35,6 @@ class App:
             render_infra_page(self.conn)
         elif page == "FAQ":
             render_faq_page(self.conn)
-        elif page == "혼잡도":
+        elif page == "충전소 혼잡도":
             load_and_preprocess(self.conn)
+            render_congestion_page(self.conn)

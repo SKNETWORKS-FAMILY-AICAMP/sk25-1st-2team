@@ -1,4 +1,5 @@
 import pandas as pd
+import streamlit as st
 from datetime import datetime
 
 # =========================
@@ -26,7 +27,7 @@ CONGESTION_META = {
 }
 
 # =========================
-# 데이터 로드 + 전처리 (MySQLdb 버전)
+# 데이터 로드 + 전처리 (MySQLdb self.conn 사용)
 # =========================
 def load_and_preprocess(conn):
     """
@@ -41,10 +42,8 @@ def load_and_preprocess(conn):
         FROM ev_charge_load
     """
 
-    # MySQLdb connection 그대로 사용
     ev_load = pd.read_sql(sql, conn)
 
-    # 기존 congestion 로직과 컬럼명 맞추기
     ev_load = ev_load.rename(columns={
         "date": "일자",
         "charge_type": "충전방식",
@@ -59,9 +58,6 @@ def load_and_preprocess(conn):
 # 혼잡도 기준 테이블 생성
 # =========================
 def build_congestion_table(ev_load_long):
-    """
-    시간대 평균 + 분위 기반 혼잡도
-    """
     hourly_mean = (
         ev_load_long
         .groupby(["충전방식", "hour"])["kWh"]
@@ -69,9 +65,9 @@ def build_congestion_table(ev_load_long):
         .reset_index()
     )
 
-    def assign_level(ev_load):
-        q25 = ev_load["kWh"].quantile(0.25)
-        q75 = ev_load["kWh"].quantile(0.75)
+    def assign_level(df):
+        q25 = df["kWh"].quantile(0.25)
+        q75 = df["kWh"].quantile(0.75)
 
         def classify(x):
             if x >= q75:
@@ -81,9 +77,9 @@ def build_congestion_table(ev_load_long):
             else:
                 return "보통"
 
-        ev_load = ev_load.copy()
-        ev_load["congestion"] = ev_load["kWh"].apply(classify)
-        return ev_load
+        df = df.copy()
+        df["congestion"] = df["kWh"].apply(classify)
+        return df
 
     return (
         hourly_mean
@@ -121,12 +117,42 @@ def get_current_congestion(congestion_table, charge_type):
 
 
 # =========================
-# Streamlit chart용 시계열 데이터
+# Streamlit 페이지 엔트리 함수
 # =========================
-def get_hourly_timeseries(congestion_table, charge_type):
-    ev_load = (
+def render_congestion_page(conn):
+    st.title("⚡ 시간대별 충전 혼잡도")
+
+    # 데이터 로드
+    ev_load_long = load_and_preprocess(conn)
+
+    if ev_load_long.empty:
+        st.warning("혼잡도 데이터가 없습니다.")
+        return
+
+    congestion_table = build_congestion_table(ev_load_long)
+
+    # 충전방식 선택
+    charge_type = st.selectbox(
+        "충전 방식 선택",
+        sorted(ev_load_long["충전방식"].unique())
+    )
+
+    # 현재 혼잡도
+    current = get_current_congestion(congestion_table, charge_type)
+
+    if current:
+        st.metric(
+            label=f"{current['hour']}시 혼잡도",
+            value=f"{current['emoji']} {current['label']}",
+            help=current["message"]
+        )
+
+    # 시간대별 차트
+    st.subheader("시간대별 평균 충전량 (kWh)")
+    chart_df = (
         congestion_table[congestion_table["충전방식"] == charge_type]
         .sort_values("hour")
         .set_index("hour")[["kWh"]]
     )
-    return ev_load
+
+    st.line_chart(chart_df)
