@@ -4,7 +4,9 @@ from mainpages.map_page import render_map_page
 from mainpages.keyword_page import render_keyword_page
 from mainpages.infra_page import render_infra_page
 from mainpages.faq_page import render_faq_page
+from mainpages.congestion_page import  load_and_preprocess
 from utils.db import get_db
+
 
 class App:
     def __init__(self):
