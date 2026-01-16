@@ -16,7 +16,7 @@ class App:
 
         # 초기 세션 상태 설정
         if 'current_page' not in st.session_state:
-            st.session_state.current_page = "충전소 현황"
+            st.session_state.current_page = "전기차 등록 현황"
 
         # 페이지 설정
         st.set_page_config(page_title="SK25 2팀!", layout="wide")
@@ -29,9 +29,9 @@ class App:
         page = st.session_state.current_page
         if page == "충전소 현황":
             render_map_page(self.conn)
-        elif page == "주요 토픽":
+        elif page == "충전소 요금":
             render_keyword_page(self.conn)
-        elif page == "인프라 현황":
+        elif page == "전기차 등록 현황":
             render_infra_page(self.conn)
         elif page == "FAQ":
             render_faq_page(self.conn)
