@@ -7,6 +7,6 @@ def get_db():
         host='175.196.76.209',
         user='play',
         passwd='123',
-        db='encore',
+        db='team2',
         autocommit=True
     )

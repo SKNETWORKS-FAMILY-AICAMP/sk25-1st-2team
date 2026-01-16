@@ -32,3 +32,5 @@ class App:
             render_infra_page(self.conn)
         elif page == "FAQ":
             render_faq_page(self.conn)
+        elif page == "혼잡도":
+            load_and_preprocess(self.conn)

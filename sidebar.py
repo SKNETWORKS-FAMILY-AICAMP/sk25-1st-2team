@@ -79,7 +79,8 @@ def render_sidebar():
         "충전소 현황": "menu_heatmap_new",
         "주요 토픽": "menu_keywords",
         "인프라 현황": "menu_infrastructure",
-        "FAQ" : "menu_FAQ"
+        "FAQ" : "menu_FAQ",
+        "혼잡도" : "menu_hon"
     }
 
     for page, key in pages.items():
