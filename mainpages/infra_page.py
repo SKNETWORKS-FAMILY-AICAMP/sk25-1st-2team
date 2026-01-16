@@ -6,7 +6,7 @@ def render_infra_page(conn):
     st.title("⚡ 전기차 등록 현황")
     st.markdown("전국 전기차 등록 대수 및 분포 현황 (2025년 4월 기준)")
     st.divider()
-    #로드
+    
     try:
         query = "SELECT * FROM ev_registration"
         df = pd.read_sql(query, conn)
@@ -66,10 +66,15 @@ def render_infra_page(conn):
         
         with col_chart1:
             st.subheader("차종별 구성")
-            type_sum = df[['passenger', 'bus', 'truck', 'special']].sum().reset_index()
+            type_sum = df[['passenger', 'bus', 'truck', 'special']].rename(columns={
+                'passenger': '승용',
+                'bus': '승합',
+                'truck': '화물',
+                'special': '특수'
+            }).sum().reset_index()
             type_sum.columns = ['차종', '대수']
             
-            chart_pie = alt.Chart(type_sum).mark_arc(innerRadius=60).encode(
+            chart_pie = alt.Chart(type_sum).    mark_arc(innerRadius=60).encode(
                 theta=alt.Theta(field="대수", type="quantitative"),
                 color=alt.Color(field="차종", type="nominal", legend=alt.Legend(title="차종")),
                 tooltip=['차종', alt.Tooltip('대수', format=',')]
@@ -84,7 +89,7 @@ def render_infra_page(conn):
             chart_usage = alt.Chart(usage_grp).mark_bar().encode(
                 x=alt.X('usage_type', title='용도'),
                 y=alt.Y('total', title='등록 대수'),
-                color='usage_type',
+                color=alt.Color('usage_type', title='용도'),
                 tooltip=['usage_type', alt.Tooltip('total', format=',')]
             ).properties(height=300)
             
