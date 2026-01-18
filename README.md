@@ -44,21 +44,22 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 ## 6. 프로젝트 구조
 ```
 c:\python\sk25-1st-2team\
-├───app.py                  # 메인 애플리케이션 클래스 및 페이지 라우팅
-├───main.py                 # 애플리케이션 실행 진입점
-├───README.md               # 프로젝트 설명 문서
-├───sidebar.py              # 사이드바 UI 구성
-├───data\                   # 충전소 위치 관련 Data file (CSV)
+├───app.py                 # 메인 애플리케이션 클래스 및 페이지 라우팅
+├───main.py                # 애플리케이션 실행 진입점
+├───README.md              # 프로젝트 설명 문서
+├───requirements.txt       # 프로젝트 의존성 목록
+├───sidebar.py             # 사이드바 UI 구성
+├───data\                  # 데이터 파일 (CSV)
 │   ├───한국전력공사_충전소의 위치 및 현황 정보_20250630.csv
 │   └───한국환경공단_전기차 충전소 위치 및 운영정보_20221027.csv
-├───mainpages\              # 각 페이지를 구성하는 모듈
-│   ├───charge_fee.py       # 충전소 요금
-│   ├───congestion_page.py  # 충전소 혼잡도
-│   ├───faq_page.py         # 차량 및 정책 FAQ
-│   ├───infra_page.py       # 전기차 등록 현황
-│   └───map_page.py         # 충전소 현황
+├───mainpages\             # 각 페이지를 구성하는 모듈
+│   ├───charge_fee.py      # 충전소 요금 페이지
+│   ├───congestion_page.py # 충전소 혼잡도 페이지
+│   ├───faq_page.py        # FAQ 페이지
+│   ├───infra_page.py      # 전기차 등록 현황 페이지
+│   └───map_page.py        # 충전소 현황 지도 페이지
 └───utils\
-    └───db.py               # 데이터베이스 연결 유틸리티
+    └───db.py              # 데이터베이스 연결 유틸리티
 ```
 
 ### 전기차 등록 현황
