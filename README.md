@@ -192,7 +192,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <br>
 
 ### 6-6. FAQ
-<img width="1108" height="661" alt="스크린샷 2026-01-19 오후 1 29 03" src="https://github.com/user-attachments/assets/ebd5ef38-88ec-4e54-9eea-ac331b9ad061" />
+<img width="842" height="854" alt="image" src="https://github.com/user-attachments/assets/1849ed81-f304-4b66-ba8c-86859757d6d9" />
 전기차 관련된 FAQ를 볼 수 있는 페이지입니다.<br>
 전기차를 생산하는 국내 브랜드(기아)와 해외 브랜드(BMW)의 전기차 관련 FAQ 그리고 전기차 대표 브랜드인 테슬라와 BYD 사이트의 FAQ를 볼 수 있습니다.<br>
 <br>
