@@ -1,4 +1,4 @@
-# 수요자 맞춤형 전기차 통합 정보 플랫폼
+<img width="1656" height="806" alt="image" src="https://github.com/user-attachments/assets/edfbca62-1a26-4265-b8b7-2c459065035f" /># 수요자 맞춤형 전기차 통합 정보 플랫폼
 
 ## 1. 프로젝트 소개
 SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
@@ -69,6 +69,9 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 ```
 
 ### 전기차 등록 현황
+
+<img width="1675" height="837" alt="image" src="https://github.com/user-attachments/assets/1d8342f2-7114-4307-8aee-cad6c022630d" />
+<img width="1656" height="806" alt="image" src="https://github.com/user-attachments/assets/82845760-9604-4a3f-9753-22871977c3e7" />
 
 
 
