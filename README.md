@@ -39,45 +39,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - **Libraries**
   - ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
   - ![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=Leaflet&logoColor=white)
-  - ![Streamlit-Folium](https://img.shields.io/badge/Streamlit--Folium-black?style=for-the-badge&logo=Streamlit&logoColor=white)
-
-<br>
-
-## 5. 실행 방법
-1. **필요한 라이브러리를 설치합니다.**
-   ```bash
-   pip install -r requirements.txt 
-   # requirements.txt 파일이 없는 경우: pip install streamlit pandas folium streamlit-folium
-   ```
-
-2. **Streamlit 애플리케이션을 실행합니다.**
-   ```bash
-   streamlit run main.py
-   ```
-
-<br>
-
-## 6. 프로젝트 구조
-```
-.\sk25-1st-2team\
-├───requirements.txt       # 프로젝트 의존성 목록
-├───README.md              # 프로젝트 설명 문서
-├───main.py                # 애플리케이션 실행 진입점
-├───app.py                 # 메인 애플리케이션 클래스 및 페이지 라우팅
-├───sidebar.py             # 사이드바 UI 구성
-├───data\                  # 데이터 파일 (CSV)
-│   ├───한국전력공사_충전소의 위치 및 현황 정보_20250630.csv
-│   └───한국환경공단_전기차 충전소 위치 및 운영정보_20221027.csv
-├───mainpages\             # 각 페이지를 구성하는 모듈
-│   ├───infra_page.py      # 전기차 등록 현황 페이지
-│   ├───map_page.py        # 충전소 현황 지도 페이지
-│   ├───charge_fee.py      # 충전소 요금 페이지
-│   ├───congestion_page.py # 충전소 혼잡도 페이지
-│   ├───subsidy_page.py    # 전기차 보조금 정보 페이지
-│   └───faq_page.py        # FAQ 페이지
-└───utils\
-    └───db.py              # 데이터베이스 연결 유틸리티
-```
+  - ![Streamlit-Folium](https://img.shields.io/badge/Streamlit--Folium-black?style=면
 <img width="1917" height="961" alt="image" src="https://github.com/user-attachments/assets/446c2e9f-36c6-451a-983c-0eb19949490d" />
 <br>
 
