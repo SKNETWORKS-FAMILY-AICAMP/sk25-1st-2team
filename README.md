@@ -13,13 +13,13 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - **FAQ:** 전기차와 관련된 자주 묻는 질문과 답변 모음
 
 ## 2. 팀 소개
-| 직책 | 이름 | 역할 |
-|:---:|:---:|:---:|
-| 팀장 | 김홍익 | 전기차 등록 현황 및 추세 Data 전처리, GitHub Repository 관리 |
-| 팀원 | 권가영 | BYD 전기차 FAQ Data 크롤링, 충전소 현황 Web 구현 |
-| 팀원 | 이근혁 | KIA, TESLA 전기차 FAQ Data 크롤링 및 FAQ Web 구현 |
-| 팀원 | 전운열 | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
-| 팀원 | 최원준 | 전체 Data URL 검색, 전기차 등록 현황 및 충전소 혼잡도 Data Web 구현 |
+| 직책 | 이름 | GitHub | 역할 |
+|:---:|:---:|:---:|:---:|
+| 팀장 | 김홍익 | [@아이디](https://github.com/아이디) | 전기차 등록 현황 및 추세 Data 전처리, GitHub Repository 관리 |
+| 팀원 | 권가영 | [@Gayoung03](https://github.com/Gayoung03) | BYD 전기차 FAQ Data 크롤링, 충전소 현황 Web 구현 |
+| 팀원 | 이근혁 | [@아이디](https://github.com/아이디) | KIA, TESLA 전기차 FAQ Data 크롤링 및 FAQ Web 구현 |
+| 팀원 | 전운열 | [@아이디](https://github.com/아이디) | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
+| 팀원 | 최원준 | [@아이디](https://github.com/아이디) | 전체 Data URL 검색, 전기차 등록 현황 및 충전소 혼잡도 Data Web 구현 |
 
 ## 3. 프로젝트 기간
 2026.01.16(금) ~ 2026.01.19(월)
