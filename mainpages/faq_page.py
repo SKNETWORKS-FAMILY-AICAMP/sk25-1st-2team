@@ -37,23 +37,32 @@ def get_cached_faq_data(table_name):
 
 # --- 2. 메인 렌더링 함수 ---
 def render_faq_page(conn=None):
-    st.header("⚡전기차 관련 FAQ (KIA/BMW/Tesla/BYD)")
+    st.header("⚡전기차 관련 FAQ 찾아보기")
     st.markdown("궁금한 브랜드와 카테고리를 선택하여 자주 묻는 질문을 확인하세요.")
+    #st.markdown("<p style='font-size: 0.9rem; color: gray;'>(KIA / BMW / Tesla / BYD)</p>", unsafe_allow_html=True)
     st.divider()
 
-    # 상단 브랜드 선택
-    col1, _ = st.columns([1, 2])
+# 1. 컬럼을 생성하여 가로 배치 준비 (비율은 1:1로 설정하거나 조정 가능)
+    col1, col2 = st.columns([1, 1])
+
     with col1:
+        # 왼쪽 컬럼: 브랜드 선택 박스
         brand_option = st.selectbox(
-            "🚗 브랜드를 선택하세요",
-            ("선택", "KIA", "BMW", "Tesla", "BYD"), 
+            "⚡ 🚗 브랜드를 선택하세요 (KIA / BMW / Tesla / BYD)",
+            ("선택", "KIA", "BMW", "Tesla", "BYD"),
             key="faq_brand_selectbox"
         )
 
+    with col2:
+        # 오른쪽 컬럼: 사진 배치 (브랜드 선택 전 초기 화면일 때만 표시)
+        if brand_option == "선택":
+            st.image(
+                "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=1000",
+                use_container_width=True # 컬럼 너비에 맞춰 크기 자동 조정
+            )
+
     if brand_option == "선택":
-        st.info("드롭다운 메뉴에서 자동차 브랜드를 선택해 주세요!")
-        st.image("https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=1000", 
-                 caption="Welcome to EV FAQ Service", width=700)
+        #st.info("드롭다운 메뉴에서 자동차 브랜드를 선택해 주세요!")
         return
 
     # 브랜드에 따른 테이블 매핑
