@@ -10,6 +10,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - **전기차 인프라 현황:** 국내 전기차 등록 현황 및 관련 인프라 통계 제공
 - **충전소별 요금 정보:** 충전소 운영사별 요금 비교 분석
 - **충전소 혼잡도:** 충전소 혼잡도 데이터를 제공하여 효율적인 충전소 선택 지원
+- **전기차 보조금 정보:** 각 지자체의 전기차 보조금 정보 제공
 - **FAQ:** 전기차와 관련된 자주 묻는 질문과 답변 모음
 
 <br>
@@ -21,7 +22,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 | 팀원 | 권가영 | [@Gayoung03](https://github.com/Gayoung03) | BYD 전기차 FAQ Data 크롤링, 충전소 현황 Web 구현 |
 | 팀원 | 이근혁 | [@kookie2626](https://github.com/kookie2626) | KIA, TESLA 전기차 FAQ Data 크롤링 및 FAQ Web 구현 |
 | 팀원 | 전운열 | [@cudaboy](https://github.com/cudaboy) | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
-| 팀원 | 최원준 | [@cwj0666](https://github.com/cwj0666) | 전체 Data URL 검색, 전기차 등록 현황 및 충전소 혼잡도 Data Web 구현 |
+| 팀원 | 최원준 | [@cwj0666](https://github.com/cwj0666) | 전체 Data URL 검색, 전기차 등록 현황·충전소 혼잡도·보조금 Data Web 구현 |
 
 <br>
 
