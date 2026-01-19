@@ -12,6 +12,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - **충전소 혼잡도:** 충전소 혼잡도 데이터를 제공하여 효율적인 충전소 선택 지원
 - **FAQ:** 전기차와 관련된 자주 묻는 질문과 답변 모음
 
+<br>
+
 ## 2. 팀 소개
 | 직책 | 이름 | GitHub | 역할 |
 |:---:|:---:|:---:|:---:|
@@ -21,8 +23,12 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 | 팀원 | 전운열 | [@cudaboy](https://github.com/cudaboy) | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
 | 팀원 | 최원준 | [@cwj0666](https://github.com/아이디) | 전체 Data URL 검색, 전기차 등록 현황 및 충전소 혼잡도 Data Web 구현 |
 
+<br>
+
 ## 3. 프로젝트 기간
 2026.01.16(금) ~ 2026.01.19(월)
+
+<br>
 
 ## 4. 기술 스택
 
@@ -34,6 +40,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
   - ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
   - ![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=Leaflet&logoColor=white)
   - ![Streamlit-Folium](https://img.shields.io/badge/Streamlit--Folium-black?style=for-the-badge&logo=Streamlit&logoColor=white)
+
+<br>
 
 ## 5. 실행 방법
 1. **필요한 라이브러리를 설치합니다.**
@@ -68,6 +76,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
     └───db.py              # 데이터베이스 연결 유틸리티
 ```
 
+<br>
+
 ### 전기차 등록 현황
 
 <img width="1675" height="837" alt="image" src="https://github.com/user-attachments/assets/1d8342f2-7114-4307-8aee-cad6c022630d" />
@@ -80,8 +90,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 승용·승합·화물·특수 차량으로 구분하여 차종별 구성 비율을 원형 차트로 표현하였습니다.
 사업용 / 비사업용 전기차 등록 현황을 막대 그래프로 제공하여 활용 목적에 따른 분포를 분석할 수 있습니다.
 
-
-
+<br>
 
 ### 충전소 현황
 - **전국 전기차 충전소 현황**
@@ -98,6 +107,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
   - <small>**지도 렌더링 오류 해결**: 지도가 반으로 잘리는 문제를 해결하기 위해, `copy.deepcopy()`를 통해 매번 깨끗한 복사본을 생성했습니다.</small>
   - <small>**시각화 개선 (MarkerCluster)**: 마커가 겹쳐 지저분해지는 문제를 해결하기 위해 `MarkerCluster`를 도입하여 가독성을 높였습니다.</small>
 
+<br>
 
 ### 충전소 요금
 - **평균 충전요금 가장 저렴한 곳 TOP 10**
@@ -109,6 +119,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <img width="1570" height="575" alt="image" src="https://github.com/user-attachments/assets/08308b9c-3d88-4b7a-84f6-0bfab12326fc" /><br>
 전체 충전소 Brand의 업체명/전화번호/회원가/비회원가를 정리한 표입니다.<br>
 특정 keyword를 이용하여 업체 정보를 검색하거나, 비회원가/회원가/업체명 순서를 이용하여 정보를 재정렬할 수 있습니다.
+
+<br>
 
 ### 충전소 혼잡도
 <img width="1603" height="776" alt="스크린샷 2026-01-19 105809" src="https://github.com/user-attachments/assets/5174fd67-dc5e-433f-b9f9-f910c45505f4" />
@@ -128,6 +140,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - 혼잡 시간대 회피를 통한 충전 대기 시간 감소
 - 사용자 충전 패턴에 맞춘 합리적인 충전 시간 선택 지원
 
+<br>
 
 ### 전기차 보조금 정보
 <img width="1569" height="700" alt="스크린샷 2026-01-19 105819" src="https://github.com/user-attachments/assets/86d6f7d2-9def-4d76-ad01-18c809660292" />
@@ -148,6 +161,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - 전기차 구매 전 지역별 보조금 차이에 대한 사전 확인
 - 거주 지역 또는 구매 예정 지역에 따른 합리적인 구매 판단 지원
 
+<br>
 
 ### FAQ
 <img width="1139" height="671" alt="스크린샷 2026-01-19 오전 9 12 11" src="https://github.com/user-attachments/assets/f6d2aac8-5078-4389-9e2b-c80768bfd1a0" />
@@ -156,6 +170,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <img width="1551" height="800" alt="image" src="https://github.com/user-attachments/assets/dd903599-4b72-4972-b0c4-ed7de38b65b7" /><br>
 <img width="1561" height="508" alt="image" src="https://github.com/user-attachments/assets/fc9d8bc9-eb47-4141-b6a0-dcaeb4658688" /><br>
 특정 키워드로 질문을 검색하실 수 있습니다. BYD의 경우, 한글로 키워드 검색을 해도 알맞는 영어 질문을 보실 수 있습니다.
+
+<br>
 
 ## 7. 데이터 출처
 
