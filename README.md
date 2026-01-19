@@ -5,6 +5,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 본 프로젝트는 전기차 사용자들에게 필요한 다양한 정보를 통합하여 제공하는 Streamlit 기반 웹 애플리케이션입니다. 전국 전기차 충전소의 위치, 요금, 혼잡도 등 실용적인 정보부터 전기차 관련 FAQ까지 한 곳에서 확인할 수 있도록 하여 사용자의 편의성을 높이는 것을 목표로 합니다.
 
+<br>
+
 ### 주요 기능
 - **전국 충전소 현황:** 지도 기반의 전국 전기차 충전소 위치 시각화
 - **전기차 인프라 현황:** 국내 전기차 등록 현황 및 관련 인프라 통계 제공
@@ -55,6 +57,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
    streamlit run main.py
    ```
 
+<br>
+
 ## 6. 프로젝트 구조
 ```
 .\sk25-1st-2team\
@@ -78,7 +82,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 <br>
 
-### 전기차 등록 현황
+### 6-1. 전기차 등록 현황
 
 <img width="1675" height="837" alt="image" src="https://github.com/user-attachments/assets/1d8342f2-7114-4307-8aee-cad6c022630d" />
 
@@ -92,8 +96,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 <br>
 
-### 충전소 현황
-- **전국 전기차 충전소 현황**
+### 6-2. 충전소 현황
+#### 전국 전기차 충전소 현황
 <img src="https://github.com/user-attachments/assets/cad72ce5-855c-4539-99ba-5281d6670d92" width="100%"><br>
 
 한국전력공사와 한국환경공단의 데이터를 결합하여 전국 전기차 충전소의 분포 현황을 지도에 시각화했습니다.<br>
@@ -109,20 +113,20 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 <br>
 
-### 충전소 요금
-- **평균 충전요금 가장 저렴한 곳 TOP 10**
+### 6-3. 충전소 요금
+#### 평균 충전요금 가장 저렴한 곳 TOP 10
 <img width="1543" height="547" alt="image" src="https://github.com/user-attachments/assets/2b14ebea-d5e2-432e-b717-7d761887acdd" /><br>
 충전소 Brand 별로 평균 충전요금을 정렬하였을 때, 요금이 가장 저렴한 업체 10곳의 가격 정보를 막대 그래프 형태로 구현하였습니다.<br>
 회원가/비회원가로 구분하여 평균 충전요금을 확인할 수 있습니다.
 
-- **업체별 평균 충전요금 목록**
+#### 업체별 평균 충전요금 목록
 <img width="1570" height="575" alt="image" src="https://github.com/user-attachments/assets/08308b9c-3d88-4b7a-84f6-0bfab12326fc" /><br>
 전체 충전소 Brand의 업체명/전화번호/회원가/비회원가를 정리한 표입니다.<br>
 특정 keyword를 이용하여 업체 정보를 검색하거나, 비회원가/회원가/업체명 순서를 이용하여 정보를 재정렬할 수 있습니다.
 
 <br>
 
-### 충전소 혼잡도
+### 6-4. 충전소 혼잡도
 <img width="1603" height="776" alt="스크린샷 2026-01-19 105809" src="https://github.com/user-attachments/assets/5174fd67-dc5e-433f-b9f9-f910c45505f4" />
 전기차 충전소의 시간대별 이용 부하(혼잡도)를 시각화한 페이지입니다.  
 충전 방식(급속 / 완속)에 따라 하루 24시간 기준 평균 충전량 변화를 확인할 수 있으며,  
@@ -142,7 +146,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 <br>
 
-### 전기차 보조금 정보
+### 6-5. 전기차 보조금 정보
 <img width="1569" height="700" alt="스크린샷 2026-01-19 105819" src="https://github.com/user-attachments/assets/86d6f7d2-9def-4d76-ad01-18c809660292" />
 전국 지자체별 전기차 구매 보조금 현황을 조회할 수 있는 페이지입니다.  
 시도 및 시군구 단위로 구분된 데이터를 제공하여 지역별 보조금 차이를 직관적으로 비교할 수 있도록 구성하였습니다.
@@ -163,7 +167,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 <br>
 
-### FAQ
+### 6-6. FAQ
 <img width="1139" height="671" alt="스크린샷 2026-01-19 오전 9 12 11" src="https://github.com/user-attachments/assets/f6d2aac8-5078-4389-9e2b-c80768bfd1a0" />
 전기차 대표 브랜드인 테슬라와 BYD 사이트의 FAQ와<br>
 국산 전기차를 생산하는 기아의 FAQ에서 전기차 관련된 내용을 모아놓은 자료입니다.<br>
@@ -183,6 +187,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
   - 급속/완속 구분: [https://www.data.go.kr/data/15119741/fileData.do](https://www.data.go.kr/data/15119741/fileData.do)
 - **충전소 이용 부하 시간대 안내** (담당: 최원준)
   - URL: [https://www.data.go.kr/data/15039553/fileData.do#tab-layer-file](https://www.data.go.kr/data/15039553/fileData.do#tab-layer-file)
+
+<br>
 
 ### Web Crawling
 - **전기차 충전 요금 정보** (담당: 전운열)
