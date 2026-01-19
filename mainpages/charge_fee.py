@@ -66,7 +66,7 @@ def render_charge_fee_page(conn):
     # =======================
     # 가장 저렴한 곳 TOP 10 차트
     # =======================
-    st.subheader("📊 평균 충전요금 가장 저렴한 곳 TOP 10")
+    st.subheader("📊 평균 충전요금 가장 저렴한 곳 TOP 10 (kWh 기준)")
     chart_fee_type = st.radio(
         "요금 종류 선택 (저렴한 순)",
         ["비회원가", "회원가"],
@@ -137,7 +137,7 @@ def render_charge_fee_page(conn):
         filtered,
         hide_index=True,
         column_config={
-            member_fee_col: st.column_config.NumberColumn(format="%.2f원"),
-            non_member_fee_col: st.column_config.NumberColumn(format="%.2f원"),
+            member_fee_col: st.column_config.NumberColumn(format="%.1f원 / kWh"),
+            non_member_fee_col: st.column_config.NumberColumn(format="%.1f원 / kWh"),
         }
     )
