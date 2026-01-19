@@ -116,6 +116,8 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <img width="1139" height="671" alt="스크린샷 2026-01-19 오전 9 12 11" src="https://github.com/user-attachments/assets/f6d2aac8-5078-4389-9e2b-c80768bfd1a0" />
 전기차 대표 브랜드인 테슬라와 BYD 사이트의 FAQ와<br>
 국산 전기차를 생산하는 기아의 FAQ에서 전기차 관련된 내용을 모아놓은 자료입니다.<br>
+<img width="1551" height="800" alt="image" src="https://github.com/user-attachments/assets/dd903599-4b72-4972-b0c4-ed7de38b65b7" /><br>
+<img width="1561" height="508" alt="image" src="https://github.com/user-attachments/assets/fc9d8bc9-eb47-4141-b6a0-dcaeb4658688" /><br>
 특정 키워드로 질문을 검색하실 수 있습니다. BYD의 경우, 한글로 키워드 검색을 해도 알맞는 영어 질문을 보실 수 있습니다.
 
 ## 7. 데이터 출처
