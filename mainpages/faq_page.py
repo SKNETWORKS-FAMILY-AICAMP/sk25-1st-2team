@@ -40,7 +40,7 @@ def render_faq_page(conn=None):
     st.header("⚡전기차 관련 FAQ 찾아보기")
     st.markdown("궁금한 브랜드와 카테고리를 선택하여 자주 묻는 질문을 확인하세요.")
     #st.markdown("<p style='font-size: 0.9rem; color: gray;'>(KIA / BMW / Tesla / BYD)</p>", unsafe_allow_html=True)
-    st.divider()
+    #st.divider()
 
 # 1. 컬럼을 생성하여 가로 배치 준비 (비율은 1:1로 설정하거나 조정 가능)
     col1, col2 = st.columns([1, 1])
@@ -52,7 +52,7 @@ def render_faq_page(conn=None):
             ("선택", "KIA", "BMW", "Tesla", "BYD"),
             key="faq_brand_selectbox"
         )
-
+    st.divider()
     with col2:
         # 오른쪽 컬럼: 사진 배치 (브랜드 선택 전 초기 화면일 때만 표시)
         if brand_option == "선택":
