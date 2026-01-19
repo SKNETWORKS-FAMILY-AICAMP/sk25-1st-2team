@@ -22,7 +22,43 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 | 팀원 | 권가영 | [@Gayoung03](https://github.com/Gayoung03) | BYD 전기차 FAQ Data 크롤링, 충전소 현황 Web 구현 |
 | 팀원 | 이근혁 | [@kookie2626](https://github.com/kookie2626) | KIA,BMW,TESLA 전기차 FAQ Data 크롤링 및 FAQ Web 구현 |
 | 팀원 | 전운열 | [@cudaboy](https://github.com/cudaboy) | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
-| 팀원 | 최원준 | [@cwj0666](https://github.com/cwj용
+| 팀원 | 최원준 | [@cwj0666](https://github.com/cwj0666) | 전체 Data URL 검색, 전기차 등록 현황·충전소 혼잡도·보조금 Data Web 구현 |
+
+<br>
+
+## 3. 프로젝트 기간
+2026.01.16(금) ~ 2026.01.19(월)
+
+<br>
+
+## 4. 기술 스택
+
+- **Language**
+  - ![Python](https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+- **Framework**
+  - ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)
+- **Libraries**
+  - ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+  - ![Folium](https://img.shields.io/badge/Folium-77B829?style=for-the-badge&logo=Leaflet&logoColor=white)
+  - ![Streamlit-Folium](https://img.shields.io/badge/Streamlit--Folium-black?style=for-the-badge&logo=Streamlit&logoColor=white)
+
+<br>
+
+## 5. 실행 방법
+1. **필요한 라이브러리를 설치합니다.**
+   ```bash
+   pip install -r requirements.txt 
+   # requirements.txt 파일이 없는 경우: pip install streamlit pandas folium streamlit-folium
+   ```
+
+2. **Streamlit 애플리케이션을 실행합니다.**
+   ```bash
+   streamlit run main.py
+   ```
+
+<br>
+
+## 6. 프로젝트 내용
 ### ERD
 <img width="1289" height="775" alt="image" src="https://github.com/user-attachments/assets/5817ef28-13fc-403e-b500-535b877d02cd" /><br>
 
