@@ -74,12 +74,12 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 ### 충전소 요금
 - **평균 충전요금 가장 저렴한 곳 TOP 10**
-<img width="1565" height="550" alt="image" src="https://github.com/user-attachments/assets/ebd2c8d8-c53d-4483-a134-add753249c4c" /><br>
+<img width="1543" height="547" alt="image" src="https://github.com/user-attachments/assets/2b14ebea-d5e2-432e-b717-7d761887acdd" /><br>
 충전소 Brand 별로 평균 충전요금을 정렬하였을 때, 요금이 가장 저렴한 업체 10곳의 가격 정보를 막대 그래프 형태로 구현하였습니다.<br>
 회원가/비회원가로 구분하여 평균 충전요금을 확인할 수 있습니다.
 
 - **업체별 평균 충전요금 목록**
-<img width="1548" height="567" alt="image" src="https://github.com/user-attachments/assets/48b7cfba-a02d-489b-8b8a-c0960d7334e3" /><br>
+<img width="1570" height="575" alt="image" src="https://github.com/user-attachments/assets/08308b9c-3d88-4b7a-84f6-0bfab12326fc" /><br>
 전체 충전소 Brand의 업체명/전화번호/회원가/비회원가를 정리한 표입니다.<br>
 특정 keyword를 이용하여 업체 정보를 검색하거나, 비회원가/회원가/업체명 순서를 이용하여 정보를 재정렬할 수 있습니다.
 
