@@ -10,6 +10,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 - **전기차 인프라 현황:** 국내 전기차 등록 현황 및 관련 인프라 통계 제공
 - **충전소별 요금 정보:** 충전소 운영사별 요금 비교 분석
 - **충전소 혼잡도:** 충전소 혼잡도 데이터를 제공하여 효율적인 충전소 선택 지원
+- **전기차 보조금 정보:** 각 지자체의 전기차 보조금 정보 제공
 - **FAQ:** 전기차와 관련된 자주 묻는 질문과 답변 모음
 
 <br>
@@ -21,7 +22,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 | 팀원 | 권가영 | [@Gayoung03](https://github.com/Gayoung03) | BYD 전기차 FAQ Data 크롤링, 충전소 현황 Web 구현 |
 | 팀원 | 이근혁 | [@kookie2626](https://github.com/kookie2626) | KIA, TESLA 전기차 FAQ Data 크롤링 및 FAQ Web 구현 |
 | 팀원 | 전운열 | [@cudaboy](https://github.com/cudaboy) | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
-| 팀원 | 최원준 | [@cwj0666](https://github.com/cwj0666) | 전체 Data URL 검색, 전기차 등록 현황 및 충전소 혼잡도 Data Web 구현 |
+| 팀원 | 최원준 | [@cwj0666](https://github.com/cwj0666) | 전체 Data URL 검색, 전기차 등록 현황·충전소 혼잡도·보조금 Data Web 구현 |
 
 <br>
 
@@ -100,10 +101,13 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 ### 6-2. 충전소 현황
 #### 전국 전기차 충전소 현황
-<img src="https://github.com/user-attachments/assets/cad72ce5-855c-4539-99ba-5281d6670d92" width="100%"><br>
-
 한국전력공사와 한국환경공단의 데이터를 결합하여 전국 전기차 충전소의 분포 현황을 지도에 시각화했습니다.<br>
-두 기관의 데이터가 모두 존재하는 곳(파란색)과 한전 데이터만 존재하는 곳(회색)을 마커 색상으로 구분하여 정보를 제공합니다.
+두 기관의 데이터가 모두 존재하는 곳(파란색)과 한전 데이터만 존재하는 곳(회색)을 마커 색상으로 구분하여 정보를 제공합니다.<br>
+<img src="https://github.com/user-attachments/assets/cad72ce5-855c-4539-99ba-5281d6670d92" width="100%">
+<br>
+
+
+<img width="649" height="594" alt="image" src="https://github.com/user-attachments/assets/2dfa8068-88fb-463c-9c1d-ae719b8da36e" /><br>
 
 - **🛠️ 기술적 구현 및 최적화**
   - <small>**동적 파일 경로 탐색**: 실행 환경이 바뀌어도 코드 수정 없이 작동하도록, `os` 라이브러리를 활용해 CSV 파일을 자동으로 로딩합니다.</small>
@@ -149,19 +153,37 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <br>
 
 ### 6-5. 전기차 보조금 정보
-<img width="1569" height="700" alt="스크린샷 2026-01-19 105819" src="https://github.com/user-attachments/assets/86d6f7d2-9def-4d76-ad01-18c809660292" />
 전국 지자체별 전기차 구매 보조금 현황을 조회할 수 있는 페이지입니다.  
 시도 및 시군구 단위로 구분된 데이터를 제공하여 지역별 보조금 차이를 직관적으로 비교할 수 있도록 구성하였습니다.
 
 #### 주요 기능
 - 지역 검색  
-  시·군·구명을 기준으로 원하는 지역의 보조금 정보를 조회할 수 있습니다.
+  시·군·구명을 기준으로 원하는 지역의 보조금 정보를 조회할 수 있습니다. 동일 시도 내 여러 지자체의 보조금 정보를 한 화면에서 비교할 수 있도록 구성했습니다.
+<img width="1569" height="700" alt="스크린샷 2026-01-19 105819" src="https://github.com/user-attachments/assets/86d6f7d2-9def-4d76-ad01-18c809660292" />
+<br>
+
+<br>
+
 - 차종별 보조금 정보 제공  
   승용차 및 초소형 전기차에 대해 지역별 보조금 금액을 표 형태로 제공합니다.
-- 지역 간 비교 용이성  
-  동일 시도 내 여러 지자체의 보조금 정보를 한 화면에서 비교할 수 있도록 구성했습니다.
-- 자주 묻는 질문
+<img width="1582" height="410" alt="image" src="https://github.com/user-attachments/assets/21a11ade-7658-45cf-9c06-5b4be1dbb2be" />
+<br>
+
+<br>
+
+- 담당 부서 연락처  
+  지자체별 담당 부서 및 연락처 정보를 지역별로 구분하여 표 형태로 제공합니다.
+<img width="1550" height="567" alt="image" src="https://github.com/user-attachments/assets/fe157fe7-21cc-4ff2-b4c7-4781a2d5abfb" />
+<br>
+
+<br>
+
+- 자주 묻는 질문  
   보조금 및 전기차에 대해 자주 묻는 질문을 한 눈에 확인할 수 있도록 구성했습니다.
+<img width="1545" height="578" alt="image" src="https://github.com/user-attachments/assets/7fe2b003-7936-46e5-b724-8e08bd82c18a" />
+<br>
+
+<br>
 
 #### 기대 효과
 - 전기차 구매 전 지역별 보조금 차이에 대한 사전 확인
@@ -173,6 +195,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <img width="1139" height="671" alt="스크린샷 2026-01-19 오전 9 12 11" src="https://github.com/user-attachments/assets/f6d2aac8-5078-4389-9e2b-c80768bfd1a0" />
 전기차 대표 브랜드인 테슬라와 BYD 사이트의 FAQ와<br>
 국산 전기차를 생산하는 기아의 FAQ에서 전기차 관련된 내용을 모아놓은 자료입니다.<br>
+<br>
 <img width="1551" height="800" alt="image" src="https://github.com/user-attachments/assets/dd903599-4b72-4972-b0c4-ed7de38b65b7" /><br>
 <img width="1561" height="508" alt="image" src="https://github.com/user-attachments/assets/fc9d8bc9-eb47-4141-b6a0-dcaeb4658688" /><br>
 특정 키워드로 질문을 검색하실 수 있습니다. BYD의 경우, 한글로 키워드 검색을 해도 알맞는 영어 질문을 보실 수 있습니다.
@@ -198,3 +221,25 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
   - Tesla: https://www.tesla.com/ko_KR/support
   - BYD: https://www.reverautomotive.com/en/faq
   - KIA: https://www.kia.com/kr/customer-service/center/faq
+- **보조금 정보** (담당: 최원준)
+  - 출처: [무공해차 통합누리집](https://ev.or.kr/nportal/buySupprt/initSubsidyPaymentCheckAction.do)
+ 
+<br>
+
+## 8. 소감 및 회고
+### 김홍익
+SK네트웍스 AI 과정 첫 프로젝트여서 의미있는 시간이였습니다. 배웠던 내용들을 활용할 수 있어서 좋았습니다. 좋은 팀원분들을 만나서 좋은 결과물이 나온 것 같습니다.
+
+### 권가영
+2주 동안 배운 내용을 프로젝트를 통해 적용해 보니 개념이 확실히 잡혔습니다. Streamlit 이나 크롤링 등은 이전에도 해 본 적이 있었지만 FOLIUM 라이브러리는 처음 배운 개념이었고 그 부분을 담당해 진행할 수 있어서 좋았습니다.
+어떻게 하면 지도를 조금 더 효율적으로 띄울 수 있을까 고민을 많이 하였고 해결하는 과정에서 많은 걸 배울 수 있었습니다.
+처음 진행하는 프로젝트라 걱정이 많이 되었지만 좋은 팀원분들을 만나 순조롭게 잘 진행할 수 있었습니다. 함께 고생하신 팀원분들께 감사 드립니다!
+
+### 이근혁
+ 첫 프로젝트, 첫 깃 허브 작업이었습니다. 2주 동안 빠르게 지나갔던 과정들을 적용해 볼 수 있는 유의미한 프로젝트였습니다. 모든 게 처음이었지만 팀원들 덕분에 큰 오류 없이 무사히 작업을 완성할 수 있었습니다. 아직 혼자서는 어렵지만 프로젝트 과정을 이해하게 되었고, 어떤 걸 더 공부 해야하는 지 알게 되어 뿌듯한 시간이었습니다.
+
+### 전운열
+프로젝트 기간도 짧았고, GitHub 다루는 법, 웹으로 페이지를 구현하는 법, DB 서버에 크롤링한 데이터를 저장하는 방법 등 처음 해보는 작업들이 많았던 것 같습니다. 수업시간에 배웠던 방법을 직접 구현하는 방식이 낯설고 어렵기도 했지만 하나하나 배워나가고 만들어가는 재미가 있었습니다. 또한 적극적으로 소통하면서 열심히 하는 팀원들을 만나서 너무 좋았습니다 :)
+
+### 최원준
+이론으로만 배운 내용을 직접 적용해보는 값진 시간이었습니다. 데이터 크롤링 부분에서 조금 헤매는 부분이 있었지만 문제를 해결하는 과정에서 한층 더 성장하는 계기가 되었습니다. 팀원분들과의 의사소통도 원활하여 의미있는 프로젝트가 될 수 있었습니다.
