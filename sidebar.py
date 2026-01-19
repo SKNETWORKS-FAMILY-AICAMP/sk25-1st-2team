@@ -80,6 +80,7 @@ def render_sidebar():
         "충전소 현황": "menu_heatmap_new",
         "충전소 요금": "menu_fee",
         "충전소 혼잡도" : "menu_honjab",
+        "전기차 보조금 정보": "menu_subsidy",
         "FAQ" : "menu_FAQ"
     }
 

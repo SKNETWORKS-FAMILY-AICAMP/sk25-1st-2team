@@ -6,6 +6,7 @@ from mainpages.infra_page import render_infra_page
 from mainpages.faq_page import render_faq_page
 from mainpages.congestion_page import load_and_preprocess
 from mainpages.congestion_page import render_congestion_page
+from mainpages.subsidy_page import render_subsidy_page
 from utils.db import get_db
 
 
@@ -35,6 +36,8 @@ class App:
             render_charge_fee_page(self.conn)
         elif page == "FAQ":
             render_faq_page(self.conn)
+        elif page == "전기차 보조금 정보":
+            render_subsidy_page(self.conn)
         elif page == "충전소 혼잡도":
             load_and_preprocess(self.conn)
             render_congestion_page(self.conn)

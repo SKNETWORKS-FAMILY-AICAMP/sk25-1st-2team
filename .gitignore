@@ -1,0 +1,16 @@
+# Python 캐시 파일
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Streamlit 관련 캐시 및 설정
+.streamlit/
+scripts/
+
+# 가상환경 (사용 중일 경우)
+venv/
+.venv/
+env/
+
+# 기타 시스템 파일
+.DS_Store
