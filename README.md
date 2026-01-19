@@ -59,6 +59,9 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 <br>
 
 ## 6. 프로젝트 구조
+### ERD
+<img width="1289" height="775" alt="image" src="https://github.com/user-attachments/assets/5817ef28-13fc-403e-b500-535b877d02cd" /><br>
+
 ```
 .\sk25-1st-2team\
 ├───requirements.txt       # 프로젝트 의존성 목록
@@ -79,9 +82,6 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 └───utils\
     └───db.py              # 데이터베이스 연결 유틸리티
 ```
-### ERD
-<img width="1289" height="775" alt="image" src="https://github.com/user-attachments/assets/5817ef28-13fc-403e-b500-535b877d02cd" />
-
 
 ### 메인 접속 화면
 <img width="1913" height="959" alt="image" src="https://github.com/user-attachments/assets/460aa341-3157-4c37-af35-4ef0c11cea28" />
