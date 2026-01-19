@@ -3,6 +3,7 @@ import pandas as pd
 import re
 from utils.db import get_db
 
+# --- 1. 유틸리티 및 데이터 로딩 함수 ---
 TRANSLATION_MAP = {
     "충전": "charge", "배터리": "battery", "보증": "warranty",
     "타이어": "tire", "유지보수": "maintenance", "소프트웨어": "software",
@@ -11,15 +12,10 @@ TRANSLATION_MAP = {
 }
 
 def highlight_keyword(text, keyword, eng_keyword=None):
-    """검색 키워드를 볼드체로 강조하는 함수"""
     if not keyword:
         return text
-    
-    # 한국어 키워드 강조
     clean_keyword = re.escape(keyword)
     text = re.sub(f"({clean_keyword})", r"**\1**", text, flags=re.IGNORECASE)
-    
-    # 대응하는 영어 키워드도 있을 경우 함께 강조
     if eng_keyword:
         clean_eng = re.escape(eng_keyword)
         text = re.sub(f"({clean_eng})", r"**\1**", text, flags=re.IGNORECASE)
@@ -27,31 +23,21 @@ def highlight_keyword(text, keyword, eng_keyword=None):
 
 @st.cache_data(ttl=600)
 def get_cached_faq_data(table_name):
-    """
-    db.py의 get_db()를 호출하여 데이터를 가져옵니다.
-    @st.cache_data 덕분에 동일 테이블은 10분간 DB 접속 없이 메모리에서 바로 로딩됩니다.
-    """
-    # db.py에서 미리 생성된(cached_resource) 연결 객체를 재사용합니다.
     conn = get_db()
-    
     try:
         with conn.cursor() as cursor:
-            # 테이블명은 SQL 파라미터 바인딩이 안 되므로 f-string을 사용합니다.
             sql = f"SELECT * FROM {table_name}"
             cursor.execute(sql)
-            
-            # 결과를 데이터프레임으로 변환 (컬럼명 포함)
             columns = [column[0] for column in cursor.description]
             result = cursor.fetchall()
             return pd.DataFrame(result, columns=columns)
     except Exception as e:
         st.error(f"데이터를 불러오는 중 오류가 발생했습니다: {e}")
         return pd.DataFrame()
-    # 주의: @st.cache_resource 연결을 사용하므로 여기서 conn.close()를 하지 않습니다.
 
 # --- 2. 메인 렌더링 함수 ---
 def render_faq_page(conn=None):
-    st.header("⚡전기차 관련 FAQ (KIA/Tesla/BYD)")
+    st.header("⚡전기차 관련 FAQ (KIA/BMW/Tesla/BYD)")
     st.markdown("궁금한 브랜드와 카테고리를 선택하여 자주 묻는 질문을 확인하세요.")
     st.divider()
 
@@ -60,7 +46,7 @@ def render_faq_page(conn=None):
     with col1:
         brand_option = st.selectbox(
             "🚗 브랜드를 선택하세요",
-            ("선택", "KIA", "Tesla", "BYD"),
+            ("선택", "KIA", "BMW", "Tesla", "BYD"), 
             key="faq_brand_selectbox"
         )
 
@@ -71,10 +57,15 @@ def render_faq_page(conn=None):
         return
 
     # 브랜드에 따른 테이블 매핑
-    table_mapping = {"KIA": "kia_faq", "Tesla": "tesla_faq", "BYD": "byd_faq"}
+    table_mapping = {
+        "KIA": "kia_faq", 
+        "BMW": "bmw_faq", 
+        "Tesla": "tesla_faq", 
+        "BYD": "byd_faq"
+    }
     target_table = table_mapping[brand_option]
 
-    # 데이터 로딩 (캐시 적용됨)
+    # 데이터 로딩
     df = get_cached_faq_data(target_table)
 
     if df.empty:
@@ -97,10 +88,9 @@ def render_faq_page(conn=None):
     if search_term:
         st.caption(f"'{search_term}' 관련 질문이 {len(display_df)}건 검색되었습니다.")
 
-# 출력 방식: KIA와 Tesla는 카테고리별 탭 구성, 나머지는 리스트
+    # --- 출력 방식 결정 ---
+    # KIA와 Tesla만 카테고리 탭 구성을 사용합니다.
     if brand_option in ["KIA", "Tesla"] and not display_df.empty and 'category' in display_df.columns:
-        # DB에서 수동으로 맞춘 순서를 유지하기 위해 sorted() 대신 
-        # 데이터에 등장하는 순서대로 카테고리 목록을 만듭니다.
         raw_categories = display_df['category'].unique().tolist()
         categories = [c for c in raw_categories if c] 
         
@@ -118,6 +108,7 @@ def render_faq_page(conn=None):
                         with st.expander(q):
                             st.write(row['answer'])
     else:
+        # BMW와 BYD는 카테고리 없이 바로 전체 리스트 출력
         if display_df.empty:
             st.warning("결과가 없습니다.")
         else:
