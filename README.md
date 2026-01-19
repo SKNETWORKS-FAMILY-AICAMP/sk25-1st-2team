@@ -69,11 +69,12 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 │   ├───한국전력공사_충전소의 위치 및 현황 정보_20250630.csv
 │   └───한국환경공단_전기차 충전소 위치 및 운영정보_20221027.csv
 ├───mainpages\             # 각 페이지를 구성하는 모듈
+│   ├───infra_page.py      # 전기차 등록 현황 페이지
+│   ├───map_page.py        # 충전소 현황 지도 페이지
 │   ├───charge_fee.py      # 충전소 요금 페이지
 │   ├───congestion_page.py # 충전소 혼잡도 페이지
-│   ├───faq_page.py        # FAQ 페이지
-│   ├───infra_page.py      # 전기차 등록 현황 페이지
-│   └───map_page.py        # 충전소 현황 지도 페이지
+│   ├───subsidy_page.py    # 전기차 보조금 정보 페이지
+│   └───faq_page.py        # FAQ 페이지
 └───utils\
     └───db.py              # 데이터베이스 연결 유틸리티
 ```
