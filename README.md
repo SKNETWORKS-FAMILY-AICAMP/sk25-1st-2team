@@ -15,7 +15,7 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 ## 2. 팀 소개
 | 직책 | 이름 | GitHub | 역할 |
 |:---:|:---:|:---:|:---:|
-| 팀장 | 김홍익 | [@아이디](https://github.com/아이디) | 전기차 등록 현황 및 추세 Data 전처리, GitHub Repository 관리 |
+| 팀장 | 김홍익 | [@아이디](https://github.com/skidroww) | 전기차 등록 현황 및 추세 Data 전처리, GitHub Repository 관리 |
 | 팀원 | 권가영 | [@Gayoung03](https://github.com/Gayoung03) | BYD 전기차 FAQ Data 크롤링, 충전소 현황 Web 구현 |
 | 팀원 | 이근혁 | [@아이디](https://github.com/아이디) | KIA, TESLA 전기차 FAQ Data 크롤링 및 FAQ Web 구현 |
 | 팀원 | 전운열 | [@cudaboy](https://github.com/cudaboy) | 충전소 회사 별 요금 Data 크롤링 및 Web 구현, 발표 |
