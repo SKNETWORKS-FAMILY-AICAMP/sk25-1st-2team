@@ -101,10 +101,11 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 
 ### 6-2. 충전소 현황
 #### 전국 전기차 충전소 현황
-<img src="https://github.com/user-attachments/assets/cad72ce5-855c-4539-99ba-5281d6670d92" width="100%">
-
 한국전력공사와 한국환경공단의 데이터를 결합하여 전국 전기차 충전소의 분포 현황을 지도에 시각화했습니다.<br>
 두 기관의 데이터가 모두 존재하는 곳(파란색)과 한전 데이터만 존재하는 곳(회색)을 마커 색상으로 구분하여 정보를 제공합니다.<br>
+<img src="https://github.com/user-attachments/assets/cad72ce5-855c-4539-99ba-5281d6670d92" width="100%">
+<br>
+
 
 <img width="649" height="594" alt="image" src="https://github.com/user-attachments/assets/2dfa8068-88fb-463c-9c1d-ae719b8da36e" /><br>
 
