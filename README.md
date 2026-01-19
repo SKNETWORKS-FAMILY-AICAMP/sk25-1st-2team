@@ -155,35 +155,26 @@ SKN AI Camp 25기 1차 단위프로젝트 2팀의 결과물입니다.
 시도 및 시군구 단위로 구분된 데이터를 제공하여 지역별 보조금 차이를 직관적으로 비교할 수 있도록 구성하였습니다.
 
 #### 주요 기능
-<img width="1569" height="700" alt="스크린샷 2026-01-19 105819" src="https://github.com/user-attachments/assets/86d6f7d2-9def-4d76-ad01-18c809660292" />
-<br>
-
 - 지역 검색  
   시·군·구명을 기준으로 원하는 지역의 보조금 정보를 조회할 수 있습니다.
-
-<br>
-
-<img width="1582" height="410" alt="image" src="https://github.com/user-attachments/assets/21a11ade-7658-45cf-9c06-5b4be1dbb2be" />
+<img width="1569" height="700" alt="스크린샷 2026-01-19 105819" src="https://github.com/user-attachments/assets/86d6f7d2-9def-4d76-ad01-18c809660292" />
 <br>
 
 - 차종별 보조금 정보 제공  
   승용차 및 초소형 전기차에 대해 지역별 보조금 금액을 표 형태로 제공합니다.
-
-<br>
-
-<img width="1550" height="567" alt="image" src="https://github.com/user-attachments/assets/fe157fe7-21cc-4ff2-b4c7-4781a2d5abfb" />
+<img width="1582" height="410" alt="image" src="https://github.com/user-attachments/assets/21a11ade-7658-45cf-9c06-5b4be1dbb2be" />
 <br>
 
 - 지역 간 비교 용이성  
   동일 시도 내 여러 지자체의 보조금 정보를 한 화면에서 비교할 수 있도록 구성했습니다.
-
+<img width="1550" height="567" alt="image" src="https://github.com/user-attachments/assets/fe157fe7-21cc-4ff2-b4c7-4781a2d5abfb" />
 <br>
 
-<img width="1545" height="578" alt="image" src="https://github.com/user-attachments/assets/7fe2b003-7936-46e5-b724-8e08bd82c18a" />
-
-<br>
 - 자주 묻는 질문  
   보조금 및 전기차에 대해 자주 묻는 질문을 한 눈에 확인할 수 있도록 구성했습니다.
+<img width="1545" height="578" alt="image" src="https://github.com/user-attachments/assets/7fe2b003-7936-46e5-b724-8e08bd82c18a" />
+<br>
+
 
 #### 기대 효과
 - 전기차 구매 전 지역별 보조금 차이에 대한 사전 확인
